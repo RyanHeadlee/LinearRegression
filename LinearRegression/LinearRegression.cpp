@@ -7,7 +7,7 @@ double LinearRegression::computeCost(const std::vector<std::vector<double>>& X, 
 
 	double cost = 0;
 
-#pragma omp parallel for reduction(+:cost)
+	#pragma omp parallel for reduction(+:cost)
 	for (int i = 0; i < m; ++i) {
 		// Get the dot product of w and X[i] and add b. (f_wb = w * X[i] + b)
 		double f_wb = std::inner_product(std::begin(X[i]), std::end(X[i]), std::begin(w), 0.0) + b;
@@ -20,7 +20,7 @@ double LinearRegression::computeCost(const std::vector<std::vector<double>>& X, 
 	// L2 Rregularization if lambda is non-default
 	double regTerm = 0.0;
 	if (this->lambda != 0) {
-#pragma omp parallel for reduction(+:regTerm)
+		#pragma omp parallel for reduction(+:regTerm)
 		for (int i = 0; i < w.size(); ++i) {
 			regTerm += w[i] * w[i];
 		}
@@ -37,11 +37,11 @@ std::tuple<std::vector<double>, double> LinearRegression::computeGradient(const 
 	std::vector<double> dj_dw(n, 0);
 	double dj_db = 0;
 
-# pragma omp parallel for reduction(+:dj_db)
+	# pragma omp parallel for reduction(+:dj_db)
 	for (int i = 0; i < m; ++i) {
 		// Get the dot product of X[i] and w, add b and subtract by the y[i]. (err = f_wb - y[i])
 		double err = (std::inner_product(std::begin(X[i]), std::end(X[i]), std::begin(w), 0.0) + b) - y[i];
-#pragma omp parallel for
+		#pragma omp parallel for
 		for (int j = 0; j < n; ++j) {
 			dj_dw[j] += err * X[i][j];
 		}
@@ -55,6 +55,7 @@ std::tuple<std::vector<double>, double> LinearRegression::computeGradient(const 
 
 	// L2 Regularization if lambda is non-default
 	if (this->lambda != 0) {
+		#pragma omp parallel for
 		for (int i = 0; i < w.size(); ++i) {
 			dj_dw[i] += lambda * w[i] / X.size();
 		}
@@ -148,7 +149,7 @@ std::vector<double> LinearRegression::predict(const std::vector<std::vector<doub
 		int m = static_cast<int>(copyX.size());
 		std::vector<double> predictions(m);
 
-#pragma omp parallel for
+		#pragma omp parallel for
 		for (int i = 0; i < m; ++i) {
 			double f_wb = std::inner_product(std::begin(copyX[i]), std::end(copyX[i]), std::begin(bW), 0.0) + bB;
 			predictions[i] = f_wb;
@@ -170,7 +171,7 @@ double LinearRegression::meanSquaredError(const std::vector<double>& yTrue, cons
 		double error = 0;
 		int m = static_cast<int>(yTrue.size());
 
-#pragma omp parallel for
+		#pragma omp parallel for
 		for (int i = 0; i < m; ++i) {
 			error += pow((predictions[i] - yTrue[i]), 2);
 		}
@@ -197,7 +198,7 @@ double LinearRegression::rSquared(const std::vector<double>& yTrue, const std::v
 		int m = static_cast<int>(yTrue.size());
 
 		// Calculate RSS
-#pragma omp parallel for
+		#pragma omp parallel for
 		for (int i = 0; i < m; ++i) {
 			rss += pow(yTrue[i] - predictions[i], 2);
 		}
@@ -205,7 +206,7 @@ double LinearRegression::rSquared(const std::vector<double>& yTrue, const std::v
 		// Calculate TSS
 		double mean = std::reduce(std::begin(yTrue), std::end(yTrue)) / double(m);
 		double tss = 0;
-#pragma omp parallel for
+		#pragma omp parallel for
 		for (int i = 0; i < m; ++i) {
 			tss += pow(yTrue[i] - mean, 2);
 		}
@@ -228,7 +229,7 @@ double LinearRegression::rootMSError(const std::vector<double>& yTrue, const std
 
 		int m = static_cast<int>(yTrue.size());
 		double rmse = 0;
-#pragma omp parallel for
+		#pragma omp parallel for
 		for (int i = 0; i < m; ++i) {
 			rmse += pow(predictions[i] - yTrue[i], 2);
 		}
