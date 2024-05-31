@@ -1,0 +1,5 @@
+﻿  LinearRegression.cpp
+  main.cpp
+  Generating Code...
+C:\Users\User\source\repos\LinearRegression\LinearRegression\main.cpp(65,48): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  LinearRegression.vcxproj -> C:\Users\User\source\repos\LinearRegression\x64\Debug\LinearRegression.exe
