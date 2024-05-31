@@ -15,7 +15,7 @@
 
 [] Visualization: Add visualization methods to plot learning curves, convergence trajectories, or model predictions against actual values.
 
-[] Parallelization: Explore parallelization techniques (e.g., using multi-threading or parallel processing libraries) to speed up computationally intensive tasks, such as gradient descent optimization or cross-validation.
+[*] Parallelization: Explore parallelization techniques (e.g., using multi-threading or parallel processing libraries) to speed up computationally intensive tasks, such as gradient descent optimization or cross-validation.
 
 [] Serialization: Implement methods to serialize and deserialize the trained model to/from disk, allowing users to save and load models for later use without retraining.
 */
@@ -61,7 +61,7 @@ int main() {
     int iterations = 10000;
     double alpha = 5e-5;
     double lambda = 5e-1;
-    double degree = 1;
+    int degree = 1;
     model.fit(X, y, alpha, iterations, lambda, degree);
 
     std::vector<double> predictions;

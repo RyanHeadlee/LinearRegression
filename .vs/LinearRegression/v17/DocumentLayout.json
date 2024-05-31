@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\User\\source\\repos\\LinearRegression\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{56673C33-FFF4-4042-9BB6-B33B0A6F2169}|LinearRegression\\LinearRegression.vcxproj|C:\\Users\\User\\source\\repos\\LinearRegression\\LinearRegression\\LinearRegression.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{56673C33-FFF4-4042-9BB6-B33B0A6F2169}|LinearRegression\\LinearRegression.vcxproj|solutionrelative:LinearRegression\\LinearRegression.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{56673C33-FFF4-4042-9BB6-B33B0A6F2169}|LinearRegression\\LinearRegression.vcxproj|C:\\Users\\User\\source\\repos\\LinearRegression\\LinearRegression\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{56673C33-FFF4-4042-9BB6-B33B0A6F2169}|LinearRegression\\LinearRegression.vcxproj|solutionrelative:LinearRegression\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56673C33-FFF4-4042-9BB6-B33B0A6F2169}|LinearRegression\\LinearRegression.vcxproj|C:\\Users\\User\\source\\repos\\LinearRegression\\LinearRegression\\LinearRegression.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{56673C33-FFF4-4042-9BB6-B33B0A6F2169}|LinearRegression\\LinearRegression.vcxproj|solutionrelative:LinearRegression\\LinearRegression.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{56673C33-FFF4-4042-9BB6-B33B0A6F2169}|LinearRegression\\LinearRegression.vcxproj|C:\\Users\\User\\source\\repos\\LinearRegression\\LinearRegression\\LinearRegression.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -22,17 +22,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\LinearRegression\\LinearRegression\\main.cpp",
               "RelativeDocumentMoniker": "LinearRegression\\main.cpp",
               "ToolTip": "C:\\Users\\User\\source\\repos\\LinearRegression\\LinearRegression\\main.cpp",
               "RelativeToolTip": "LinearRegression\\main.cpp",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAAACwAAAAGAAAA",
+              "ViewState": "AQIAADMAAAAAAAAAAAAAADwAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-31T00:03:11.717Z",
               "IsPinned": true,
@@ -60,13 +60,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "LinearRegression.cpp",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\LinearRegression\\LinearRegression\\LinearRegression.cpp",
               "RelativeDocumentMoniker": "LinearRegression\\LinearRegression.cpp",
               "ToolTip": "C:\\Users\\User\\source\\repos\\LinearRegression\\LinearRegression\\LinearRegression.cpp",
               "RelativeToolTip": "LinearRegression\\LinearRegression.cpp",
-              "ViewState": "AQIAAFQAAAAAAAAAAAAAAFwAAAAAAAAA",
+              "ViewState": "AQIAAGYAAAAAAAAAAAAAAHAAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-31T00:02:18.325Z",
               "EditorCaption": ""
@@ -79,9 +79,10 @@
               "RelativeDocumentMoniker": "LinearRegression\\LinearRegression.h",
               "ToolTip": "C:\\Users\\User\\source\\repos\\LinearRegression\\LinearRegression\\LinearRegression.h",
               "RelativeToolTip": "LinearRegression\\LinearRegression.h",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAACoAAAAGAAAA",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAYwBMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-31T00:03:39.367Z"
+              "WhenOpened": "2024-05-31T00:03:39.367Z",
+              "EditorCaption": ""
             }
           ]
         }

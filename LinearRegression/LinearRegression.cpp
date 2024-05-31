@@ -109,6 +109,8 @@ void LinearRegression::fit(const std::vector<std::vector<double>>& X, const std:
 		if (X.size() != y.size()) throw std::invalid_argument("Number of rows in X must match the number of target values in y");
 		if ((X.empty() || X[0].empty()) || y.empty()) throw std::invalid_argument("X and y must be a valid Matrix");
 		if (degree < 1) throw std::invalid_argument("Degree must be greater than 0");
+		if (alpha <= 0) throw std::invalid_argument("Alpha cannot be non-positive");
+		if (numIter < 1) throw std::invalid_argument("Number of iterations must be greater than 0");
 
 		// Set private data members to specified values or default
 		this->lambda = lambda;
