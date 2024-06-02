@@ -1,7 +1,16 @@
 #include "LinearRegression.h"
 
-LinearRegression::LinearRegression() : bB(0), lambda(0), alpha(0), numIter(0), degree(1) {}
 
+/*
+* Constructor for linear regression model
+*/
+LinearRegression::LinearRegression() : bB(0), lambda(0), alpha(0.01), numIter(1000), degree(1) {}
+
+/*
+* Computes the cost function w/ the current weights (w, b);
+* 
+* @param X is a matrix of 
+*/
 double LinearRegression::computeCost(const std::vector<std::vector<double>>& X, const std::vector<double>& y, const std::vector<double>& w, double b) {
 	int m = static_cast<int>(X.size());
 
@@ -19,12 +28,12 @@ double LinearRegression::computeCost(const std::vector<std::vector<double>>& X, 
 
 	// L2 Rregularization if lambda is non-default
 	double regTerm = 0.0;
-	if (this->lambda != 0) {
+	if (lambda != 0) {
 		#pragma omp parallel for reduction(+:regTerm)
-		for (int i = 0; i < w.size(); ++i) {
-			regTerm += w[i] * w[i];
+		for (int j = 0; j < w.size(); ++j) {
+			regTerm += w[j] * w[j];
 		}
-		regTerm *= lambda / (2 * X.size());
+		regTerm *= (lambda / (2 * m));
 	}
 
 	return cost + regTerm;
@@ -43,7 +52,7 @@ std::tuple<std::vector<double>, double> LinearRegression::computeGradient(const 
 		double err = (std::inner_product(std::begin(X[i]), std::end(X[i]), std::begin(w), 0.0) + b) - y[i];
 		#pragma omp parallel for
 		for (int j = 0; j < n; ++j) {
-			dj_dw[j] += err * X[i][j];
+			dj_dw[j] += err * X[i][j] + ((lambda / m) * w[j]);
 		}
 		dj_db += err;
 	}
@@ -52,14 +61,6 @@ std::tuple<std::vector<double>, double> LinearRegression::computeGradient(const 
 	std::transform(dj_dw.begin(), dj_dw.end(), dj_dw.begin(), std::bind(std::divides<double>(), std::placeholders::_1, m));
 
 	dj_db /= double(m);
-
-	// L2 Regularization if lambda is non-default
-	if (this->lambda != 0) {
-		#pragma omp parallel for
-		for (int i = 0; i < w.size(); ++i) {
-			dj_dw[i] += lambda * w[i] / X.size();
-		}
-	}
 
 	return { dj_dw, dj_db };
 }

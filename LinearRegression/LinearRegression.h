@@ -1,5 +1,5 @@
-#ifndef LINEAR_REGRESSOR
-#define LINEAR_REGRESSOR
+#ifndef LINEAR_REGRESSION
+#define LINEAR_REGRESSION
 
 #include <vector>
 #include <numeric>

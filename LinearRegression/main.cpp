@@ -24,7 +24,6 @@
 #include <iostream>
 
 int main() {
-    LinearRegression model;
 
     std::vector<std::vector<double>> X = {
         {0.2745260821241825, 0.8565343230025708, 0.7491166674910877, 0.6081038881587227, 0.5842545113721088, 0.8386558049518352, 0.2873348372433737, 0.1279047505881754, 0.5096375276797437, 0.7561056080086631},
@@ -58,9 +57,10 @@ int main() {
     };
     std::vector<double> y_test = { 0.6247794677496661, 0.24302759313963973, 0.6657514467440689, 0.26542962690152594, 0.3906311248672244 };
 
-    int iterations = 10000;
+    LinearRegression model;
     double alpha = 5e-5;
-    double lambda = 5e-1;
+    int iterations = 10000;
+    double lambda = 5;
     int degree = 1;
     model.fit(X, y, alpha, iterations, lambda, degree);
 
